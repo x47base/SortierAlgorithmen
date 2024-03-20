@@ -4,7 +4,6 @@ from algorithms.heapsort import Heapsort
 from reader import read_data
 
 import sys
-import math
 sys.setrecursionlimit(999999999)
 import time
 
