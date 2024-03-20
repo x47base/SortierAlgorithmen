@@ -1,6 +1,7 @@
 from algorithms.quicksort import Quicksort
 from algorithms.bubblesort import Bubblesort
 from algorithms.heapsort import Heapsort
+from algorithms.shakersort import Shakersort
 from reader import read_data
 
 import sys
@@ -42,7 +43,12 @@ def main():
     
     # Another Sort Algorithm
     print("-- Another Sort Algorithm --")
-    
+    data = read_data(file=_file)
+    start = time.time()
+    Shakersort(data, option)
+    end = time.time()
+    heap_time = end - start
+    print(f"{heap_time:.9f} Sekunden")
 
 if __name__ == "__main__":
     main()

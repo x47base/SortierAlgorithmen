@@ -1,37 +1,3 @@
-import csv
-import datetime
-
-
-def read_data(file: str = "SortSmall.txt", seperator: str = ","):
-    """
-
-    Read Data froma a CSV File
-    """
-    rows = []
-    with open(f"./data/{file}", "r") as file:
-        csvreader = csv.reader(file)
-        for row in csvreader:
-            to_int = [0, 4]
-            to_date = [5]
-            to_float = [6]
-
-            for i in to_int:
-                row[i] = int(row[i])
-
-            for i in to_date:
-                day_month_year = row[i].split(".")
-                row[i] = datetime.date(
-                    day=int(day_month_year[0]),
-                    month=int(day_month_year[1]),
-                    year=int(day_month_year[2]),
-                )
-
-            for i in to_float:
-                row[i] = float(row[i])
-
-            rows.append(row)
-        file.close()
-    return rows
 
 def Shakersort(array: list, sort_option: int):
     """
@@ -53,12 +19,27 @@ def Shakersort(array: list, sort_option: int):
         array[y] = _x
         array[x] = _y
 
-    def shake():
-        pass
-    
-    pass
+    swapped = True
+    start = 0
+    end = n-1
+    while (swapped==True):
+        swapped = False
+ 
+        for i in range (start, end):
+            if (array[i][option] > array[i+1][option]) :
+                swap(i, i+1)
+                swapped=True
 
-if __name__ == "__main__":
-    data = read_data()
-    Shakersort(data, 2)
-    print(data)
+        if (swapped==False):
+            break
+ 
+        swapped = False
+
+        end = end-1
+ 
+        for i in range(end-1, start-1,-1):
+            if (array[i][option] > array[i+1][option]):
+                swap(i, i+1)
+                swapped = True
+ 
+        start = start+1
