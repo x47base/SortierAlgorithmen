@@ -5,7 +5,7 @@ from reader import read_data
 
 def main():
     data = read_data()
-    
+    Bubblesort(data)
 
 if __name__ == "__main__":
     main()
