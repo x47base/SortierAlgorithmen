@@ -1,10 +1,22 @@
 
-def Quicksort(liste):
+def Quicksort(array: list, sort_option: int):
+    """
+
+    Sort Options:
+    (1) Nachname
+    (2) PLZ
+    (3) Geburtsdatum (dd.mm.yyyy)
+    (4) Vermögen (Decimal)
+    """
+
+    options = [2, 4, 5, 6]  # CSV Header Positions of the Options
+    option = options[sort_option - 1]
+    
     def partition(arr, low, high):
-        pivot = arr[high][2]
+        pivot = arr[high][option]
         i = low - 1
         for j in range(low, high):
-            if arr[j][2] <= pivot:
+            if arr[j][option] <= pivot:
                 i += 1
                 arr[i], arr[j] = arr[j], arr[i]
         arr[i + 1], arr[high] = arr[high], arr[i + 1]
@@ -17,8 +29,4 @@ def Quicksort(liste):
             quicksort_for_second_entry(arr, pi + 1, high)
 
 
-    quicksort_for_second_entry(liste, 0, len(liste) - 1)
-
-    # Ausgabe der sortierten Liste
-    for zeile in liste:
-        print(zeile)
+    quicksort_for_second_entry(array, 0, len(array) - 1)
