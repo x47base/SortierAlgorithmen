@@ -10,7 +10,6 @@ def read_data(file: str = "SortSmall.txt", seperator: str = ","):
     rows = []
     with open(f"./data/{file}", "r") as file:
         csvreader = csv.reader(file)
-        header = next(csvreader)
         for row in csvreader:
             to_int = [0, 4]
             to_date = [5]
