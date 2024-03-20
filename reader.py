@@ -22,9 +22,9 @@ def read_data(file: str = "SortSmall.txt", seperator: str = ","):
             for i in to_date:
                 day_month_year = row[i].split(".")
                 row[i] = datetime.date(
-                    day=day_month_year[0],
-                    month=day_month_year[1],
-                    year=day_month_year[2],
+                    day=int(day_month_year[0]),
+                    month=int(day_month_year[1]),
+                    year=int(day_month_year[2]),
                 )
 
             for i in to_float:
