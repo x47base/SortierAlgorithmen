@@ -3,12 +3,15 @@ from algorithms.bubblesort import Bubblesort
 from algorithms.heapsort import Heapsort
 from reader import read_data
 
+import sys
+import math
+sys.setrecursionlimit(999999999)
 import time
 
 def main():
-    _file="SortMedium.txt"
+    _file="SortBig.txt"
     # Options:     (1) Nachname    (2) PLZ    (3) Geburtsdatum (dd.mm.yyyy)    (4) Vermögen (Decimal)
-    option = 1
+    option = 2
     
     # Quicksort
     print("-- Quicksort --")
